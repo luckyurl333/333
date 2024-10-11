@@ -256,9 +256,9 @@ async def bypass_func(url):
     return c_link
 
 
-async def is_droplink_url(url):
+async def is_luckyurl_url(url):
     domain = urlparse(url).netloc
-    return url if "droplink.co" in domain else False
+    return url if "luckyurl.in" in domain else False
 
 
 async def broadcast_admins(c: Client, Message, sender=False):
@@ -298,14 +298,14 @@ async def update_stats(m: Message, method):
     mdisk_links = re.findall(
         r'https?://mdisk.me[^\s`!()\[\]{};:".,<>?«»“”‘’]+', message
     )
-    droplink_links = await extract_link(message)
-    total_links = len(droplink_links)
+    luckyurl_links = await extract_link(message)
+    total_links = len(luckyurl_links)
     await db.update_posts(1)
     if method == "mdisk":
-        droplink_links = []
+        luckyurl_links = []
     if method == "shortener":
         mdisk_links = []
-    await db.update_links(total_links, len(droplink_links), len(mdisk_links))
+    await db.update_links(total_links, len(luckyurl_links), len(mdisk_links))
 
 
 async def get_me_button(user):
@@ -381,25 +381,13 @@ async def set_commands(app):
     COMMANDS = [
         BotCommand("start", "Used to start the bot."),
         BotCommand("help", "Displays the help command."),
-        BotCommand("about", "Displays information about the bot."),
-        BotCommand("method", "Sets your preferred method."),
         BotCommand("shortener_api", "Sets the shortener API."),
-        BotCommand("mdisk_api", "Sets the mDisk API."),
         BotCommand("header", "Sets the header."),
         BotCommand("footer", "Sets the footer."),
         BotCommand("username", "Sets the username to replace others."),
         BotCommand("banner_image", "Sets the banner image."),
         BotCommand("me", "Displays information about the bot."),
-        BotCommand("base_site", "Changes the base site."),
-        BotCommand("include_domain", "Sets the included domain."),
-        BotCommand("exclude_domain", "Sets the excluded domain."),
-        BotCommand("stats", "Displays statistics of the server and bot."),
-        BotCommand("batch", "Converts link for multiple posts (admin only)."),
-        BotCommand("logs", "Sends the log messages (admin only)."),
-        BotCommand("restart", "Restarts or re-deploys the server (admin only)."),
-        BotCommand("ban", "Bans users (admin only)."),
-        BotCommand("unban", "Unbans users (admin only)."),
-        BotCommand("info", "Gets user info (admin only)."),
+        BotCommand("contact", "Contact LuckyUrl Team"),
     ]
 
     await app.set_bot_commands(COMMANDS)

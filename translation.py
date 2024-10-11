@@ -11,7 +11,8 @@ For example: <code>/batch -100xxx</code>
 I'll handle the rest and get those links shortened or converted in a short time! 💪
 """
 
-START_MESSAGE = """Hi there {} 
+START_MESSAGE = """Hi there {} 👋 Welcome to the **Lucky URL Shortener Bot**! 🎉\n\n"
+        "With this bot, you can easily shorten your URLs and share them with friends or on social media. \n"
 
 Send me a link or post and I'll shorten it for you!
 
@@ -42,30 +43,12 @@ Useful commands:
 """
 
 ABOUT_TEXT = """
-**My Details:**
-
-`🤖 Name:` ** {} **
-    
-`📝 Language:` [Python 3](https://www.python.org/)
-`🧰 Framework:` [Pyrogram](https://github.com/pyrogram/pyrogram)
-`👨‍💻 Developer:` [Dev](t.me/ask_admin001)
-`📢 Support:` [Talk Bot](https://t.me/ask_admin001)
-`🌐 Source Code:` [GitHub](https://github.com/kevinnadar22/URL-Shortener-V2/)
 """
+CONTACT_TEXT = """</b>CONTACT SUPPORT TEAM 24/7 - @Lucky_Url
 
+We always strive to respond to your messages as quickly as possible! If you don’t receive a reply within an hour, please feel free to reach out again. Your patience is greatly appreciated! 😊</b>"""
 
 METHOD_MESSAGE = """
-Current Method: {method}
-    
-Methods Available:
-
-> `mdlink` - Change all the links of the post to your MDisk account first and then short to {shortener} link.
-
-> `shortener` - Short all the links of the post to {shortener} link directly.
-
-> `mdisk` - Save all the links of the post to your Mdisk account.
-    
-To change method, choose it from the following options:
 """
 
 CUSTOM_ALIAS_MESSAGE = """For custom alias, `[link] | [custom_alias]`, Send in this format
@@ -91,16 +74,10 @@ Here is a list of the channels:
 HELP_REPLY_MARKUP = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("Methods", callback_data="method_command"),
-            InlineKeyboardButton("Batch", callback_data="cbatch_command"),
         ],
         [
-            InlineKeyboardButton("Custom Alias", callback_data="alias_conf"),
-            InlineKeyboardButton("Admins", callback_data="admins_list"),
         ],
         [
-            InlineKeyboardButton("Channels", callback_data="channels_list"),
-            InlineKeyboardButton("Home", callback_data="start_command"),
         ],
     ]
 )
@@ -119,12 +96,8 @@ ABOUT_REPLY_MARKUP = InlineKeyboardMarkup(
 START_MESSAGE_REPLY_MARKUP = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("Help", callback_data="help_command"),
-            InlineKeyboardButton("About", callback_data="about_command"),
         ],
         [
-            InlineKeyboardButton("Method", callback_data="method_command"),
-            InlineKeyboardButton("Close", callback_data="delete"),
         ],
     ]
 )
@@ -132,17 +105,8 @@ START_MESSAGE_REPLY_MARKUP = InlineKeyboardMarkup(
 METHOD_REPLY_MARKUP = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton(
-                "MDLINK", callback_data="change_method#mdlink"
-            ),
-            InlineKeyboardButton(
-                "Shortener", callback_data="change_method#shortener"
-            ),
-            InlineKeyboardButton("Mdisk", callback_data="change_method#mdisk"),
         ],
         [
-            InlineKeyboardButton("Back", callback_data="help_command"),
-            InlineKeyboardButton("Close", callback_data="delete"),
         ],
     ]
 )
@@ -156,11 +120,7 @@ USER_ABOUT_MESSAGE = """
 
 - 🌐 Shortener website: {base_site}
 
-- 🧰 Method: {method}
-
 - 🔌 {base_site} API: {shortener_api}
-
-- 💾 Mdisk API: {mdisk_api}
 
 - 📎 Username: @{username}
 
@@ -184,16 +144,19 @@ Get your Mdisk API from @VideoToolMoneyTreebot
 
 Current Mdisk API: `{}`"""
 
-SHORTENER_API_MESSAGE = """To add or update your Shortner Website API, 
-`/shortener_api [api]`
+SHORTENER_API_MESSAGE = """</b>🍁How to Connect API ?</b>
+
             
-Ex: `/shortener_api 6LZq851sXofffPHugiKQq`
+👉 First Visit LuckyUrl.in/member/tools/api
+👉 Copy the API TOKEN and come back to Bot.
+👉 Input  /shortener_api and Paste The token Copied from LuckyUrl.in/member/tools/api
+👉 Now bot will successfully connected to your LuckyUrl.in account.
 
-Current Website: {base_site}
+Ex: /shortener_api 66Abc8516XYZffPHugiKQq
 
-To change your Shortener Website: /base_site
+<b>Current Linked API:</b> {shortener_api}
 
-Current Shortener API: `{shortener_api}`"""
+<b>Go back to home</b> /start"""
 
 HEADER_MESSAGE = """📝 To set the header text for every message caption or text, just reply with the text you want to use. You can use \\n to add a line break.
 

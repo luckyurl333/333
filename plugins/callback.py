@@ -15,6 +15,7 @@ from pyrogram.types import CallbackQuery, InlineKeyboardButton, InlineKeyboardMa
 from translation import (
     ABOUT_REPLY_MARKUP,
     ABOUT_TEXT,
+    CONTACT_TEXT,
     ADMINS_MESSAGE,
     BACK_REPLY_MARKUP,
     BATCH_MESSAGE,
@@ -158,7 +159,7 @@ async def on_callback_query(bot: Client, query: CallbackQuery):
                 firstname=temp.FIRST_NAME,
                 username=temp.BOT_USERNAME,
                 repo=SOURCE_CODE,
-                owner="@ask_admin001",
+                owner="@Lucky_url",
             ),
             reply_markup=HELP_REPLY_MARKUP,
             disable_web_page_preview=True,
